@@ -57,7 +57,7 @@ console.log(channelHasVideo("The Universal S", channels[0]));
  ****************************************************************/
 function getChannelByName(channelName, channels) {
   // Your code here
- return channelName = channels.find(obj => obj.name === channelName);
+ return channels.find(channel => channel.name === channelName);
 
 }
  console.log(getChannelByName("PowerfulJRE", channels));
@@ -72,7 +72,7 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
   // Your code here
-     return channels.videos.find(obj => obj.name === channelName).some(e => e.title ===videoTitle );
+     return channels.find(channel => channel.videos.some(video => video.title === videoTitle));
      
 }
 console.log(getChannelByVideoTitle("The Universal S", channels));
@@ -87,7 +87,8 @@ console.log(getChannelByVideoTitle("The Universal S", channels));
  ****************************************************************/
 function searchChannels(query, channels) {
   // Your code here
-  return (channels.channelName.filter(e => e.name.toLowerCase.include("the") ));
+  return channels.filter(channel => channel.name.includes(query))
+  || channels.filter(channel => channel.description.includes(query));
 }
  console.log(searchChannels("the", channels))
 
